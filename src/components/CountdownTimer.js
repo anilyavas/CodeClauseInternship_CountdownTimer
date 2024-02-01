@@ -23,8 +23,9 @@ const CountdownTimer = ({ initialSeconds }) => {
   };
   return (
     <div>
-      <h1>Countdown Timer</h1>
-      <p>{formatTime(seconds)}</p>
+      <h1 style={{ color: 'blue' }}>Countdown Timer</h1>
+      <p>You have got 10 minutes to go.</p>
+      <p style={{ color: 'red', fontWeight: 'bold' }}>{formatTime(seconds)}</p>
     </div>
   );
 };
