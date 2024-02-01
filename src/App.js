@@ -1,10 +1,11 @@
-import { useState, useEffect, useRef } from 'react';
+// Filename - App.js
+
+import React, { useState, useRef, useEffect } from 'react';
 
 const App = () => {
-  // ref for dealing with js setInterval for keeping track of it and stopping if needed
   const Ref = useRef(null);
 
-  // usestate hook for timer
+  // The state for our timer
   const [timer, setTimer] = useState('00:00:00');
 
   const getTimeRemaining = (e) => {
@@ -31,15 +32,16 @@ const App = () => {
           (seconds > 9 ? seconds : '0' + seconds)
       );
     }
+  };
 
-    const clearTimer = (e) => {
-      setTimer('23:59:59');
-      if (Ref.current) clearInterval(Ref.current);
-      const id = setInterval(() => {
-        startTimer(e);
-      }, 1000);
-      Ref.current = id;
-    };
+  const clearTimer = (e) => {
+    setTimer('23:59:59');
+
+    if (Ref.current) clearInterval(Ref.current);
+    const id = setInterval(() => {
+      startTimer(e);
+    }, 1000);
+    Ref.current = id;
   };
 
   const getDeadTime = () => {
@@ -56,10 +58,11 @@ const App = () => {
   const onClickReset = () => {
     clearTimer(getDeadTime());
   };
+
   return (
     <div style={{ textAlign: 'center', margin: 'auto' }}>
-      <h1 style={{ color: 'blue' }}>Anil Yavas Countdown Timer</h1>
-      <h3>Countdown Timer With React JS</h3>
+      <h1 style={{ color: 'green' }}>Countdown Timer Anil Yavas</h1>
+      <h3>Countdown Timer Using React JS with Custom Functions</h3>
       <h2>{timer}</h2>
       <button onClick={onClickReset}>Reset</button>
     </div>
